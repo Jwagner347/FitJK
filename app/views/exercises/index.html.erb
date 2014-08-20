@@ -1,0 +1,22 @@
+<h1 id="list_of_exercises_header">List of Exercises</h1>
+<%= link_to 'New Exercise', new_exercise_path %>
+
+<table>
+  <tr>
+    <th id="exercise_name_header">Exercise name</th>
+    <th id="exercise_description_header">Description</th>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @exercises.each do |exercise| %>
+    <tr>
+      <td id='<%= exercise.exercise_name %>'><%= exercise.exercise_name %></td>
+      <td id='<%= exercise.exercise_name %>_description'><%= exercise.description %></td>
+      <td><%= link_to 'Show', exercise_path(exercise) %></td>
+      <td><%= link_to 'Edit', edit_exercise_path(exercise) %></td>
+      <td><%= link_to 'Delete', exercise_path(exercise), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back', new_exercise_path %>
