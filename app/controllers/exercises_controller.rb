@@ -1,4 +1,4 @@
-class ExercisesController < ApplicationController
+		class ExercisesController < ApplicationController
 
 	def new
 		@exercise = Exercise.new
@@ -7,12 +7,23 @@ class ExercisesController < ApplicationController
 	def create
   	@exercise = Exercise.new(exercise_params)
 
-		if @exercise.save
-			redirect_to @exercise
-		else
-			render 'new'
-		end
+		respond_to do |format|
+      if @exercise.save
+        format.html { redirect_to @exercise, notice: 'exercise was successfully created.' }
+        format.json
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @exercise.errors, status: :unprocessable_entity }
+      end
+    end
   end
+
+	# 	if @exercise.save
+	# 		redirect_to @exercise
+	# 	else
+	# 		render 'new'
+	# 	end
+  # end
 
   def show
   	@exercise = Exercise.find(params[:id])

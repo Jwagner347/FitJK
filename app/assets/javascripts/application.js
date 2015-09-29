@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+  when $("exercise_exercise_name").change(function({if this.val == "" { $("#error_explaination").show("test") }}))
+)})

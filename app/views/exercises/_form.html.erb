@@ -13,6 +13,7 @@
   <p>
     <%= f.label :exercise_name %><br>
     <%= f.text_field :exercise_name %>
+
   </p>
 
   <p>
@@ -24,3 +25,14 @@
     <%= f.submit %>
   </p>
 <% end %>
+
+<script type="text/javascript">
+  function validateForm() {
+    var x = document.forms["myForm"]["fname"].value;
+    if (x == null || x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+}
+
+</script>
