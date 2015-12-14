@@ -1,0 +1,30 @@
+<%= link_to 'Program List', programs_path %>
+<%= link_to 'Home', root_path %>
+<%= link_to 'Edit', edit_program_path(@program) %>
+
+<p>
+  <strong>Program name:</strong>
+  <%= @program.program_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @program.description %>
+</p>
+
+<p>
+  <% form_for @program do |f| %>
+    <strong>Add exercises to this program:</strong>
+    <%= f.collection_check_boxes :exercise_ids, Exercise.all, :id, :exercise_name do |exercise| %>
+      <% exercise.label {exercise.check_box(class: "checkbox") + exercise.text} %>
+    <% end %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Exercises:</strong>
+  <%= @program.exercises.each do |exercise| %>
+    <%= puts exercise.exercise_name %>
+
+  <% end %>
+</p>

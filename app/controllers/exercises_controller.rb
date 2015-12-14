@@ -1,4 +1,4 @@
-		class ExercisesController < ApplicationController
+	class ExercisesController < ApplicationController
 
 	def new
 		@exercise = Exercise.new
@@ -17,13 +17,6 @@
       end
     end
   end
-
-	# 	if @exercise.save
-	# 		redirect_to @exercise
-	# 	else
-	# 		render 'new'
-	# 	end
-  # end
 
   def show
   	@exercise = Exercise.find(params[:id])

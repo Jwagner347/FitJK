@@ -1,6 +1,6 @@
 <%= form_for @exercise do |f| %>
+  <div id="error_explanation"></div>
   <% if @exercise.errors.any? %>
-  <div id="error_explanation">
     <h2><%= pluralize(@exercise.errors.count, "error") %> prohibited
       this exercise from being saved:</h2>
     <ul>
@@ -8,7 +8,7 @@
       <li><%= msg %></li>
     <% end %>
     </ul>
-  </div>
+
   <% end %>
   <p>
     <%= f.label :exercise_name %><br>
@@ -22,17 +22,6 @@
   </p>
 
   <p>
-    <%= f.submit %>
+    <%= f.submit(class: "button") %>
   </p>
 <% end %>
-
-<script type="text/javascript">
-  function validateForm() {
-    var x = document.forms["myForm"]["fname"].value;
-    if (x == null || x == "") {
-        alert("Name must be filled out");
-        return false;
-    }
-}
-
-</script>
