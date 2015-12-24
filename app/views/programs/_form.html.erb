@@ -22,6 +22,11 @@
   </p>
 
   <p>
+    <strong>Add exercises to this program:</strong>
+    <%= f.collection_check_boxes :exercise_ids, Exercise.all, :id, :exercise_name %>
+  </p>
+
+  <p>
     <%= f.submit(class: "button") %>
   </p>
 <% end %>

@@ -1,4 +1,7 @@
 class ProgramsController < ApplicationController
+  before_action :set_program, only: [:edit, :update, :show]
+  before_action :require_user, except: [:show, :index]
+  before_action :require_same_user, only: [:edit, :update, :show]
 
   def new
     @program = Program.new
@@ -6,6 +9,7 @@ class ProgramsController < ApplicationController
 
   def create
   	@program = Program.new(program_params)
+    @program.user = current_user
 
 		respond_to do |format|
       if @program.save
@@ -19,23 +23,18 @@ class ProgramsController < ApplicationController
   end
 
   def show
-  	@program = Program.find(params[:id])
-    @exercises = @program.exercises
 	end
 
 	def index
-  	@programs = Program.all
+  	@programs = current_user.programs
 	end
 
 	def edit
-  	@program = Program.find(params[:id])
 	end
 
 	def update
-  	@program = Program.find(params[:id])
-
   	if @program.update(program_params)
-    	redirect_to @program
+    	redirect_to program_path(@program)
   	else
     	render 'edit'
   	end
@@ -52,5 +51,17 @@ class ProgramsController < ApplicationController
 		def program_params
   		params.require(:program).permit(:program_name, :description, exercise_ids: [])
 		end
+
+    def set_program
+      @program = Program.find(params[:id])
+    end
+
+    def require_same_user
+      if current_user != @program.user
+        #TODO: if add admins, need to add !current_user.admin? conditional also
+        flash[:danger] = "You can only view and edit your own programs"
+        redirect_to programs_path
+      end
+    end
 
 end

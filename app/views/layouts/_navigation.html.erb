@@ -1,14 +1,56 @@
 <header class="navbar navbar-fixed-top navbar-default">
   <div class="container">
-    <%= link_to "My Workouts", "", class: "btn btn-lg btn-success", id: "my_workouts" %>
+    <% if logged_in? %>
+      <div class="nav-item">
+        <li class="dropdown">
+          <%= link_to '#', class: "btn btn-default btn-danger dropdown-toggle", "data-toggle" => "dropdown" do %>
+            Exercises <b class="caret"></b>
+          <% end %>
+          <ul class='dropdown-menu'>
+            <li><%= link_to "All Exercies", exercises_path %></li>
+            <li><%= link_to "New Exercise", new_exercise_path %></li>
+          </ul>
+        </li>
+      </div>
+      <div class="nav-item">
+        <li class="dropdown">
+          <%= link_to '#', class: "btn btn-default btn-danger dropdown-toggle", "data-toggle" => "dropdown" do %>
+            Programs <b class="caret"></b>
+          <% end %>
+          <ul class='dropdown-menu'>
+            <li><%= link_to "My Programs", programs_path %></li>
+            <li><%= link_to "New Program", new_program_path %></li>
+          </ul>
+        </li>
+      </div>
+    <% end %>
     <div class="nav-item">
-      <%= link_to "link 1", "", class: "btn btn-default btn-warning" %>
+      <%= link_to "Placeholder", "", class: "btn btn-default btn-warning" %>
     </div>
-    <div class="nav-item">
-      <%= link_to "link 2", "", class: "btn btn-default btn-warning" %>
+    <div id="home_button">
+      <%= link_to "Home", root_path, type: "button", class: "btn btn-default navbar-btn" %>
     </div>
-    <div class="nav-item">
-      <%= link_to "link 3", "", class: "btn btn-default btn-warning" %>
-    </div>
+    <% if logged_in? %>
+      <div class="nav-item">
+        <%= link_to "Logout", logout_path, class: "btn btn-default btn-danger" %>
+      </div>
+      <ul class="nav-item">
+        <li class="dropdown">
+          <%= link_to '#', class: "btn btn-default btn-danger dropdown-toggle", "data-toggle" => "dropdown" do %>
+            <%= current_user.name %> <b class="caret"></b>
+          <% end %>
+          <ul class='dropdown-menu'>
+            <li><%= link_to "View Profile", user_path(current_user) %></li>
+            <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+            <li class="divider"></li>
+            <li><%= link_to "Logout", logout_path %></li>
+          </ul>
+        </li>
+      </ul>
+    <% else %>
+      <div class="nav-item">
+        <%= link_to "Login", login_path, class: "btn btn-default btn-success" %>
+      </div>
+    <% end %>
   </div>
 </header>

@@ -3,7 +3,7 @@ $navbar-default-bg: #90C0D4;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-#my_workouts {
+#my_programs {
   margin-top: 10px;
   margin-bottom: 10px;
   float: left;
@@ -16,7 +16,7 @@ $navbar-default-bg: #90C0D4;
   font-weight: bold;
 }
 
-#my_workouts:hover {
+#my_programs:hover {
   color: white;
   text-decoration: none;
 }
@@ -29,6 +29,11 @@ body {
   margin-left: 25px;
   float: left;
   margin-top: 20px;
+}
+
+#home_button {
+  float: right;
+  margin-top: 10px;
 }
 
 .center {

@@ -18,6 +18,7 @@ gem 'spring',        group: :development
 gem 'capybara'
 gem 'selenium-webdriver'
 gem 'site_prism'
+gem 'bcrypt', '3.1.7'
 
 
 group :development, :test do

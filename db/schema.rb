@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214035246) do
+ActiveRecord::Schema.define(version: 20151220040359) do
 
   create_table "exercise_programs", force: true do |t|
     t.integer "exercise_id"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20151214035246) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
 end
