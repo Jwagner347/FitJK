@@ -4,15 +4,15 @@
 
 
 
-// $(document).ready(function() {
-//
-//   var x = $("#exercise_exercise_name").value;
-//
-//   $('.button').on('click', function() {
-//
-//     if (x === null || x === "") {
-//         alert("Name must be filled out");
-//         return false;
-//     }
-//   });
-// });
+$(document).ready(function() {
+
+  var exerciseName = $("#exercise_exercise_name").get(0).value;
+
+  $('.button').on('click', function() {
+
+    if (exerciseName === null || exerciseName === "") {
+        alert("Name must be filled out");
+        return false;
+    }
+  });
+});
