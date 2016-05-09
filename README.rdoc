@@ -1,5 +1,9 @@
-
+- bug with adding days of week to program: if unselect all, nothing gets sent (use hash instead maybe?)
+- javascript validations on new exercise and program creation
+- when log in, they are asked if they want to begin the program for that day (javascript hopefully), if they say yes, taken to program, if they say no, taken to home page.
 - users can input reps and weight for each exercise that is part of the program
 - these should be logged and saved for each session
 - as part of the program, users can autopopulate a new session with what they did from last time * a percentage or + a certain amount of weight
 - users cannot access other users' programs
+- Programs dropdown should be a list of programs you have?
+- Exercises dropdown should be a list of exercises you have?

@@ -1,6 +1,6 @@
 class ProgramsController < ApplicationController
   before_action :set_program, only: [:edit, :update, :show]
-  before_action :require_user, except: [:show, :index]
+  before_action :require_user
   before_action :require_same_user, only: [:edit, :update, :show]
 
   def new
@@ -49,7 +49,7 @@ class ProgramsController < ApplicationController
 
 	private
 		def program_params
-  		params.require(:program).permit(:program_name, :description, exercise_ids: [])
+  		params.require(:program).permit(:program_name, :description, day_of_week: [], exercise_ids: [])
 		end
 
     def set_program

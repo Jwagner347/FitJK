@@ -1,6 +1,9 @@
 <header class="navbar navbar-fixed-top navbar-default">
   <div class="container">
     <% if logged_in? %>
+    <div id="home_button">
+      <%= link_to "Home", root_path, type: "button", class: "btn btn-default navbar-btn" %>
+    </div>
       <div class="nav-item">
         <li class="dropdown">
           <%= link_to '#', class: "btn btn-default btn-danger dropdown-toggle", "data-toggle" => "dropdown" do %>
@@ -24,14 +27,8 @@
         </li>
       </div>
     <% end %>
-    <div class="nav-item">
-      <%= link_to "Placeholder", "", class: "btn btn-default btn-warning" %>
-    </div>
-    <div id="home_button">
-      <%= link_to "Home", root_path, type: "button", class: "btn btn-default navbar-btn" %>
-    </div>
     <% if logged_in? %>
-      <div class="nav-item">
+      <div class="nav-item" id="logout">
         <%= link_to "Logout", logout_path, class: "btn btn-default btn-danger" %>
       </div>
       <ul class="nav-item">

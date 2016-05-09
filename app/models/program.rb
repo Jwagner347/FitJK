@@ -4,4 +4,7 @@ class Program < ActiveRecord::Base
   has_many :exercises, through: :exercise_programs
   belongs_to :user
   validates :user_id, presence: true
+  serialize :day_of_week, Array
+
+
 end

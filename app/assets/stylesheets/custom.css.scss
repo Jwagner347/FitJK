@@ -31,13 +31,21 @@ body {
   margin-top: 20px;
 }
 
-#home_button {
+#logout {
   float: right;
+}
+
+#home_button {
+  float: left;
   margin-top: 10px;
 }
 
 .center {
   text-align: center;
+}
+
+li.dropdown {
+  list-style: none;
 }
 
 h1, h2, h3, h4 {
