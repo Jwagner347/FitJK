@@ -11,11 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160131221036) do
+ActiveRecord::Schema.define(version: 20160526204400) do
 
   create_table "exercise_programs", force: true do |t|
     t.integer "exercise_id"
     t.integer "program_id"
+    t.integer "number_of_reps"
+    t.integer "number_of_sets"
   end
 
   create_table "exercises", force: true do |t|

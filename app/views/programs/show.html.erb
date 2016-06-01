@@ -14,8 +14,11 @@
 <p>
   <strong>Exercises:</strong>
   <% if @program.exercises.any? %>
+
     <% @program.exercises.each do |exercise| %>
       <%= exercise.exercise_name %>
+      <%= "The number of sets for this exercise is #{show_sets(exercise, @program)}" %>
+      <%= "The number of reps for this exercise is #{show_reps(exercise, @program)}" %>
     <% end %>
   <% else %>
     <%= "No Exercises Selected for this Program" %>

@@ -4,15 +4,26 @@
 
 
 
-$(document).ready(function() {
 
-  var exerciseName = $("#exercise_exercise_name").get(0).value;
+$(document).on('page:load', function() {
 
-  $('.button').on('click', function() {
+  var exerciseName, exerciseDescription;
+
+  $('.button').on('click', validateExerciseForm)
+
+
+  function validateExerciseForm() {
+    exerciseName = $("#exercise_exercise_name").get(0).value;
+    exerciseDescription = $("#exercise_description").get(0).value;
 
     if (exerciseName === null || exerciseName === "") {
-        alert("Name must be filled out");
+        alert("Please provide an Exercise Name");
         return false;
     }
-  });
+
+    if (exerciseDescription === null || exerciseDescription === "") {
+        alert("Please provide an Exercise Description");
+        return false;
+    }
+  };
 });

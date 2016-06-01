@@ -1,6 +1,5 @@
 JeffFit::Application.routes.draw do
-  resources :exercises
-  resources :programs
+  resources :exercises, :programs, :exercise_programs
 
   root 'pages#home'
 

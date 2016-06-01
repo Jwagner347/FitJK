@@ -1,9 +1,21 @@
-- bug with adding days of week to program: if unselect all, nothing gets sent (use hash instead maybe?)
-- javascript validations on new exercise and program creation
-- when log in, they are asked if they want to begin the program for that day (javascript hopefully), if they say yes, taken to program, if they say no, taken to home page.
+- for programs, user can input number of sets for each exercise as well as number of reps.  this will be done through clicking exercise listed in the program show page.  a lightbox will popup that will let them add the number of sets and number of reps they want in this particular program.  the exercise will need to somehow record these in exercise_programs table for the particular exercise_program_id (as in, this exercise where the exercise the program overlap to create the unique exercise_program_id).  it will look like:
+
+Sets         Reps     Current Week's WEight
+set 1        5          145 lbs.
+set 2        5
+set 3        5
+
+ - reps can be entered either individually for each set or if all the same (5x5), user can select this
+
 - users can input reps and weight for each exercise that is part of the program
 - these should be logged and saved for each session
 - as part of the program, users can autopopulate a new session with what they did from last time * a percentage or + a certain amount of weight
 - users cannot access other users' programs
 - Programs dropdown should be a list of programs you have?
 - Exercises dropdown should be a list of exercises you have?
+
+- bug with adding days of week to program: if unselect all, nothing gets sent (use hash instead maybe?)
+- when log in, they are asked if they want to begin the program for that day (javascript hopefully), if they say yes, taken to program, if they say no, taken to home page.
+
+-track and compete sets/reps/PRs with other participants, and motivate them to go every day
+-a feature to let you find other people in your area looking for a workout buddy, can put what your goals are etc.
